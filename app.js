@@ -3,25 +3,33 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const port = 3000;
 
+const products = [];
+
 const app = express();
 
 app.use(bodyParser.urlencoded());
 
-app.set();
+app.set("view engine", "ejs");
+app.set("views", "views");
 
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "views", "index.html"));
+  res.render("index.ejs");
 });
 
 app.post("/products", (req, res) => {
+  products.push({ title: req.body.product });
   const prod = req.body;
   console.log(prod);
-  res.sendFile(path.join(__dirname, "views", "products.html"));
+  res.render("products.ejs", {
+    prod: products,
+    title: "Ova e titleto",
+  });
 });
+
 app.get("/add-product", (req, res) => {
-  res.sendFile(path.join(__dirname, "views", "add-product.html"));
+  res.render("add-product.ejs");
 });
 
 app.listen(port, () => {
