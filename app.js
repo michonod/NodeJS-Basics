@@ -19,9 +19,9 @@ app.get("/", (req, res) => {
 });
 
 app.post("/products", (req, res) => {
-  products.push({ title: req.body.product });
-  const prod = req.body;
-  console.log(prod);
+  const { product, image, price } = req.body;
+  products.push({ title: product, image, price });
+  console.log(products);
   res.render("products.ejs", {
     prod: products,
     title: "Ova e titleto",
