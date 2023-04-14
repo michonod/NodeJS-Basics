@@ -1,0 +1,24 @@
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+input {
+  padding: 10px;
+}
+
+label {
+  font-size: 20px;
+  margin: 10px;
+  text-transform: uppercase;
+}
+
+button {
+  padding: 10px 28px;
+  font-size: 20px;
+  border-radius: 4px;
+  margin-top: 10px;
+}
